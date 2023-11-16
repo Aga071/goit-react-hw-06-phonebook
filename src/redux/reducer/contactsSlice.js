@@ -12,7 +12,7 @@ const contactsSlice = createSlice({
   reducers: {
     addContact: {
       reducer: (state, action) => {
-        state.find(contact => contact.name === state.name)
+        state.find(contact => contact.name === action.payload.name)
           ? alert(`${state.name} is already in contacts.`)
           : state.push(action.payload);
         localStorage.setItem('contacts', JSON.stringify(state));
