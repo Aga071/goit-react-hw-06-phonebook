@@ -20,12 +20,15 @@ const App = () => {
     );
   };
 
-  useEffect(() => {
-    const savedSettings = localStorage.getItem('contacts');
-    const parsedSettings = JSON.parse(savedSettings);
+  useEffect(
+    () => {
+      const savedSettings = localStorage.getItem('contacts');
+      const parsedSettings = JSON.parse(savedSettings);
 
-    if (parsedSettings !== null) dispatch(startContact(parsedSettings));
-  }, []);
+      if (parsedSettings !== null) dispatch(startContact(parsedSettings));
+    }, // eslint-disable-next-line
+    []
+  );
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
